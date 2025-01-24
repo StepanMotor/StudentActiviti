@@ -1,0 +1,59 @@
+﻿<Page x:Class="StudentActiviti.View.Pages.AddActivity"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StudentActiviti.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="770" d:DesignWidth="975"
+      Title="AddActivity">
+
+    <Grid Background="White">
+
+        <Grid Margin="100">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Введите соревнование"
+                       FontSize="36"
+                       HorizontalAlignment="Center"
+                       FontWeight="DemiBold"/>
+
+            <TextBox Grid.Row="2" 
+                     Height="50"
+                     Width="350"
+                     FontSize="36"
+                     Name="ActivityTb"/>
+
+            <TextBlock Text="Выберите его вид"
+                       FontSize="36"
+                       HorizontalAlignment="Center"
+                       FontWeight="DemiBold"
+                       Grid.Row="4"/>
+
+            <ComboBox Grid.Row="6" 
+                     Height="50"
+                     Width="350"
+                     FontSize="23"
+                     Name="ActivityCmb" />
+
+            <Button Grid.Row="8"
+                    Width="250"
+                    Height="50"
+                    Content="Добавить"
+                    FontSize="30"
+                    Name="AddActivityBtn"
+                    Click="AddActivityBtn_Click"/>
+        </Grid>
+
+    </Grid>
+</Page>

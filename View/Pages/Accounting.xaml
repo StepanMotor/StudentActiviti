@@ -1,0 +1,143 @@
+﻿<Page x:Class="StudentActiviti.View.Pages.Accounting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StudentActiviti.View.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="770" d:DesignWidth="975"
+      Title="Accounting">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <ListView Margin="50 0 50 0"
+                  Name="GroupLv">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding DateEvent, StringFormat = dd.MM.yyyy}"/>
+                    <GridViewColumn Header="Команда" DisplayMemberBinding="{Binding Group.Name}"/>
+                    <GridViewColumn Header="Специальность" DisplayMemberBinding="{Binding Group.Special.Name}"/>
+                    <GridViewColumn Header="Соревнование" DisplayMemberBinding="{Binding Activity.Name}"/>
+                    <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Activity.Direction.Name }"/>
+                    <GridViewColumn Header="Балл" DisplayMemberBinding="{Binding Mark }"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Grid Grid.Row="2"
+              Margin="50 0 50 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Выберите дату" 
+                       FontSize="20"
+                       TextDecorations="Underline" 
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+            <DatePicker Name="ChoiceDateDp"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Width="150"
+                        HorizontalAlignment="Center"
+                        />
+
+        </Grid>
+
+        <Grid Grid.Row="4" Margin="50 0 50 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Выберите специальность"
+                       FontSize="20"  
+                       TextDecorations="Underline" 
+                       FontWeight="Bold"/>
+            <ComboBox Name="SelectChoiceCmb"
+                     Grid.Row="2"
+                     Height="30"
+                     SelectionChanged="SelectChoiceCmb_SelectionChanged"
+                     />
+
+            <TextBlock Text="Выберите группу"
+                       FontSize="20"  
+                       Grid.Row="4"
+                       TextDecorations="Underline" 
+                       FontWeight="Bold"/>
+            <ComboBox Name="SelectGroupCmb"
+                     Grid.Row="6"
+                     Height="30"/>
+
+            <TextBlock Text="Выберите статус соревнования"
+                       FontSize="20"  
+                       TextDecorations="Underline" 
+                       FontWeight="Bold"
+                       Grid.Column="2"/>
+            <ComboBox Name="SelectStatusCmb"
+                      Grid.Row="2"
+                      Grid.Column="2"
+                      Height="30"
+                      SelectionChanged="SelectStatusCmb_SelectionChanged"/>
+
+            <TextBlock Text="Выберите соревнование"
+                       FontSize="20"  
+                       Grid.Row="4"
+                       TextDecorations="Underline" 
+                       FontWeight="Bold"
+                       Grid.Column="2"/>
+            <ComboBox Name="SelectActivityCmb"
+                      Grid.Row="6"
+                      Grid.Column="2"
+                      Height="30"/>
+        </Grid>
+
+        <Grid Grid.Row="6" Margin="50 0 50 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Введите количество баллов"
+                       FontSize="20"  
+                       TextDecorations="Underline" 
+                       FontWeight="Bold"
+                       />
+            <TextBox Grid.Column="2"
+                     Name="MarkTb"/>
+            <Button Grid.Column="4"
+                    Width="200"
+                    Content="Добавить"
+                    FontSize="30"
+                    Name="AddActivityBtn"
+                    Click="AddActivityBtn_Click"/>
+
+        </Grid>
+
+    </Grid>
+</Page>
